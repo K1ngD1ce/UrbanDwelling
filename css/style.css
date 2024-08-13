@@ -44,6 +44,10 @@ span {
   display: flex;
 }
 
+.hide {
+  display: none;
+}
+
 .reset-list {
   margin: 0;
   padding-left: 0;
