@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 770px;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 }
@@ -261,6 +261,8 @@ span {
 }
 
 .lamp__img {
+  width: 100%;
+  height: auto;
   border-radius: 20px;
   cursor: pointer;
   transition: box-shadow .3s ease-in-out;
