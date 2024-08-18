@@ -3,10 +3,6 @@ window.onload = () => {
     input.oninput = function () {
         let value = this.value.trim().toLowerCase();
         let list = document.querySelectorAll('.catalog__item');
-        console.log(value);
-        
-
-
 
         if (value != '') {
             list.forEach(el => {
@@ -20,4 +16,27 @@ window.onload = () => {
             })
         }
     }
+
+    document.getElementById("openCart").addEventListener("click", function(){
+        document.getElementById("cartModal").classList.add('open')
+    })
+    
+    document.getElementById("closeCart").addEventListener("click", function(){
+        document.getElementById("cartModal").classList.remove('open')
+    })  
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            document.getElementById("cartModal").classList.remove("open")
+        }
+    })
+
+    document.querySelector("#cartModal .cart__box").addEventListener('click', event => {
+        event._isClickWithInModal = true;
+    })
+    
+    document.getElementById("cartModal").addEventListener('click', event => {
+        if (event._isClickWithInModal) return;
+        event.currentTarget.classList.remove('open')
+    })
 }
