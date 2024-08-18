@@ -1,4 +1,5 @@
 window.onload = () => {
+    // Поиск
     let input = document.querySelector('#input');
     input.oninput = function () {
         let value = this.value.trim().toLowerCase();
@@ -16,7 +17,7 @@ window.onload = () => {
             })
         }
     }
-
+    // Корзина popup
     document.getElementById("openCart").addEventListener("click", function(){
         document.getElementById("cartModal").classList.add('open')
     })
@@ -39,4 +40,29 @@ window.onload = () => {
         if (event._isClickWithInModal) return;
         event.currentTarget.classList.remove('open')
     })
+
+    // Бургер Navigation
+    document.getElementById("openNav").addEventListener("click", function(){
+        document.getElementById("navModal").classList.add('open')
+    })
+    
+    document.getElementById("closeNav").addEventListener("click", function(){
+        document.getElementById("navModal").classList.remove('open')
+    })  
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            document.getElementById("navModal").classList.remove("open")
+        }
+    })
+
+    document.querySelector("#navModal .nav__modal-box").addEventListener('click', event => {
+        event._isClickWithInModal = true;
+    })
+    
+    document.getElementById("navModal").addEventListener('click', event => {
+        if (event._isClickWithInModal) return;
+        event.currentTarget.classList.remove('open')
+    })
+
 }
